@@ -17,8 +17,9 @@ if uploaded_file is not None:
     # Display the original image
     # st.image(image, caption='Uploaded Image', use_column_width=True)
     st.write("")
+    status = st.empty()
     try:
-        st.write("Solution : ")
+        status.write("Solution : ")
 
         # Process the image using the queen_solver function
         processed_image = queen_solver(image)
@@ -27,4 +28,4 @@ if uploaded_file is not None:
         st.image(processed_image,  use_column_width=True)
 
     except ValueError as e:
-        st.error(e)
+        status.error(e)
