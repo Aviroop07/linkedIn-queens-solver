@@ -19,7 +19,7 @@ if uploaded_file is not None:
     st.write("")
     status = st.empty()
     try:
-        status.write("Solution : ")
+        status.success("Solution : ")
 
         # Process the image using the queen_solver function
         processed_image = queen_solver(image)
