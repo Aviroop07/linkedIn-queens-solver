@@ -5,7 +5,9 @@ from functions import queen_solver
 # Placeholder for the queen_solver function
 
 
-st.title("LinkedIn Queens Solver")
+st.write('''
+# 👑 LinkedIn Queens Solver 👑
+''')
 
 # File uploader allows the user to upload an image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -19,7 +21,7 @@ if uploaded_file is not None:
     st.write("")
     status = st.empty()
     try:
-        status.success("Solution : ")
+        status.success("Success!")
 
         # Process the image using the queen_solver function
         processed_image = queen_solver(image)
