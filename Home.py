@@ -9,6 +9,8 @@ st.write('''
 # 👑 LinkedIn Queens Solver 👑
 ''')
 
+
+n = st.number_input('Enter the number of rows in the grid', value=8)
 # File uploader allows the user to upload an image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
@@ -17,14 +19,14 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     
     # Display the original image
-    # st.image(image, caption='Uploaded Image', use_column_width=True)
+    st.image(image, caption='Uploaded Image', use_column_width=True)
     st.write("")
     status = st.empty()
     try:
         status.success("Success!")
 
         # Process the image using the queen_solver function
-        processed_image = queen_solver(image)
+        processed_image = queen_solver(image,n)
 
         # Display the processed image
         st.image(processed_image,  use_column_width=True)

@@ -1,6 +1,8 @@
 import numpy as np
 from PIL import Image
 import copy
+from tabulate import tabulate
+import streamlit as st
 
 def find_no_of_rows(image : Image)->int:
     image_arr = np.array(image)
@@ -177,14 +179,14 @@ class Node:
         return self.backtrack
 
 
-def queen_solver(image : Image)->Image:
-    # image.show()
+def queen_solver(image : Image, no_of_rows : int)->Image:
     try:
-        no_of_rows = find_no_of_rows(image)
+        # no_of_rows = find_no_of_rows(image)
+        # print(f'no_of_rows = {no_of_rows}')
         if no_of_rows == 0 or no_of_rows==2 or no_of_rows>20:
             raise ValueError('Invalid Image!')
         color_arr = create_color_array(no_of_rows, np.array(image))
-        # print(tabulate(color_arr, tablefmt="fancy_grid"))
+        # st.write(tabulate(color_arr, tablefmt="fancy_grid"))
         color_board = create_color_board(color_arr, no_of_rows)
         # print(tabulate(color_board, tablefmt="fancy_grid"))
         coordinates = sort_positions(create_coordinates(color_board))
@@ -195,7 +197,7 @@ def queen_solver(image : Image)->Image:
         # print(tabulate(tree.solution(), tablefmt="fancy_grid"))
         final_pos = find_queen_pos(tree.solution())
         # print(final_pos)
-        image_arr = np.array(image)
+        image_arr = np.array(image)[:,:,:3]
         # print(image_arr)
         image_arr = create_red_dot(image_arr, final_pos, no_of_rows)
         return Image.fromarray(image_arr)
