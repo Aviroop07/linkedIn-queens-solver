@@ -1,7 +1,6 @@
 import numpy as np
 from PIL import Image
 import copy
-from tabulate import tabulate
 import streamlit as st
 
 def find_no_of_rows(image : Image)->int:
