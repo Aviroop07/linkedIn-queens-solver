@@ -182,7 +182,7 @@ def queen_solver(image : Image, no_of_rows : int)->Image:
     try:
         # no_of_rows = find_no_of_rows(image)
         # print(f'no_of_rows = {no_of_rows}')
-        if no_of_rows == 0 or no_of_rows==2 or no_of_rows>20:
+        if no_of_rows <= 0 or no_of_rows==2 or no_of_rows>20:
             raise ValueError('Invalid Image!')
         color_arr = create_color_array(no_of_rows, np.array(image))
         # st.write(tabulate(color_arr, tablefmt="fancy_grid"))

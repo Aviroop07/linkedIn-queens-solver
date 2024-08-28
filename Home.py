@@ -19,7 +19,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     
     # Display the original image
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+    # st.image(image, caption='Uploaded Image', use_column_width=True)
     st.write("")
     status = st.empty()
     try:
